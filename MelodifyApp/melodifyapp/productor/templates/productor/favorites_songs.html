@@ -49,6 +49,11 @@
         </div>
     </nav>
 
+    <!-- Botón para regresar -->
+    <div class="container mt-3">
+        <a href="{% url 'users:productor_dashboard' %}" class="btn btn-secondary">⟵ Volver</a>
+    </div>
+
     <div class="container mt-5">
         <h1 class="text-center mb-4">Mis Canciones Favoritas</h1>
         {% if favorites %}

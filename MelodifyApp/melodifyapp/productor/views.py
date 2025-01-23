@@ -24,7 +24,7 @@ def search_song_productor(request):
             Q(album__musician__last_name__icontains=query) 
         ).distinct()
 
-    return render(request, 'oyente/buscar_artista_productor.html', {
+    return render(request, 'productor/buscar_artista_productor.html', {
         'form': form,
         'results': results,
         'query': query,
@@ -35,12 +35,11 @@ def reproduce_music_productor(request, song_id):
     song = get_object_or_404(Song, id=song_id)
 
     is_favorited = Favorite.objects.filter(user=request.user, song=song).exists()
-
-
     return render(request, 'productor/reproductor_musica_productor.html', {
         'song': song,
         'is_favorited': is_favorited,  # Pasamos esta variable al contexto
     })
+
 @login_required
 def send_message_productor(request, song_id):
     song = get_object_or_404(Song, id=song_id)

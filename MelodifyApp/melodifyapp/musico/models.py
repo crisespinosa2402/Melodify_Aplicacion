@@ -49,9 +49,9 @@ class LikeDislike(models.Model):
         (DISLIKE, 'Dislike'),
     )
     vote = models.SmallIntegerField(choices=CHOICES)
-
     class Meta:
         unique_together = ('user', 'song') 
+
 class Favorite(models.Model):
     user = models.ForeignKey(
         settings.AUTH_USER_MODEL,  
